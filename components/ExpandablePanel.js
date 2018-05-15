@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 
 import ExpandActionPanel from './ExpandActionPanel';
 
@@ -64,15 +65,15 @@ export default class ExpandablePanel extends React.Component {
 }
 
 ExpandablePanel.propTypes = {
-  dataSource: React.PropTypes.array.isRequired,
-  renderRow: React.PropTypes.func.isRequired,
-  renderHeader: React.PropTypes.func,
-  expandText: React.PropTypes.string,
-  collapseText: React.PropTypes.string,
-  contentPanelStyle: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.array]),
-  footerPanelStyle: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.array]),
-  footerTextStyle: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.array]),
-  minRowCount: React.PropTypes.number,
+  dataSource: PropTypes.array.isRequired,
+  renderRow:PropTypes.func.isRequired,
+  renderHeader: PropTypes.func,
+  expandText: PropTypes.string,
+  collapseText: PropTypes.string,
+  contentPanelStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  footerPanelStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  footerTextStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  minRowCount: PropTypes.number,
 };
 
 ExpandablePanel.defaultProps = {

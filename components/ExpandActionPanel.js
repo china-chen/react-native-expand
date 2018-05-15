@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -29,11 +30,11 @@ function ExpandActionPanel(props) {
 }
 
 ExpandActionPanel.propTypes = {
-  onPress: React.PropTypes.func.isRequired,
-  text: React.PropTypes.string.isRequired,
-  size: React.PropTypes.number.isRequired,
-  containerStyle: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.array]),
-  textStyle: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.array]),
+  onPress: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  size: PropTypes.number.isRequired,
+  containerStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  textStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
 };
 
 export default ExpandActionPanel;
