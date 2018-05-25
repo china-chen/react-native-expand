@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, StyleSheet, TouchableOpacity, View } from 'react-native';
+import {Text, StyleSheet, TouchableOpacity, View, Image} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,8 +8,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-  },
+  text: {},
   placeholder: {
     borderColor: '#ccc',
     borderTopWidth: StyleSheet.hairlineWidth,
@@ -17,24 +16,24 @@ const styles = StyleSheet.create({
 });
 
 function ExpandActionPanel(props) {
-  return props.size > 1
+  return props.size > 3
     ?
     <TouchableOpacity
       onPress={props.onPress}
       style={[styles.container, props.containerStyle]}
     >
-      <Text style={[styles.text, props.textStyle]}>{ props.text }</Text>
+      <Image style={props.textStyle} source={props.text}/>
     </TouchableOpacity>
     :
-    <View style={styles.placeholder} />;
+    <View style={styles.placeholder}/>;
 }
 
 ExpandActionPanel.propTypes = {
   onPress: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.any.isRequired,
   size: PropTypes.number.isRequired,
-  containerStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  textStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  containerStyle: PropTypes.any,
+  textStyle: PropTypes.any,
 };
 
 export default ExpandActionPanel;

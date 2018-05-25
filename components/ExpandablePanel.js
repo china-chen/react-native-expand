@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 
 import ExpandActionPanel from './ExpandActionPanel';
@@ -17,23 +17,23 @@ export default class ExpandablePanel extends React.Component {
     super(props);
     this.getExpandText = this.getExpandText.bind(this);
     this.handleExpandPress = this.handleExpandPress.bind(this);
-    this.state = { isExpanded: false };
+    this.state = {isExpanded: false};
   }
 
   getExpandText() {
-    const { expandText, collapseText } = this.props;
+    const {expandText, collapseText} = this.props;
     return this.state.isExpanded ? collapseText : expandText;
   }
 
   handleExpandPress() {
-    const { isExpanded } = this.state;
+    const {isExpanded} = this.state;
     this.setState({
       isExpanded: !isExpanded,
     });
   }
 
   renderData() {
-    const { dataSource, minRowCount } = this.props;
+    const {dataSource, minRowCount} = this.props;
     const rowsData = this.state.isExpanded ? dataSource : dataSource.slice(0, minRowCount);
     return rowsData.map((row, index) => (this.props.renderRow(row, index)));
   }
@@ -48,9 +48,9 @@ export default class ExpandablePanel extends React.Component {
     } = this.props;
     return (
       <View style={styles.panel}>
-        { renderHeader && renderHeader() }
+        {renderHeader && renderHeader()}
         <View style={contentPanelStyle}>
-          { this.renderData() }
+          {this.renderData()}
         </View>
         <ExpandActionPanel
           onPress={this.handleExpandPress}
@@ -66,13 +66,12 @@ export default class ExpandablePanel extends React.Component {
 
 ExpandablePanel.propTypes = {
   dataSource: PropTypes.array.isRequired,
-  renderRow:PropTypes.func.isRequired,
+  renderRow: PropTypes.func.isRequired,
   renderHeader: PropTypes.func,
-  expandText: PropTypes.string,
-  collapseText: PropTypes.string,
-  contentPanelStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  footerPanelStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  footerTextStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  expandText: PropTypes.any,
+  collapseText: PropTypes.any,
+  contentPanelStyle: PropTypes.any,
+  footerTextStyle: PropTypes.any,
   minRowCount: PropTypes.number,
 };
 
