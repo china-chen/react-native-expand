@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   panel: {
     backgroundColor: '#fff',
     borderColor: '#ccc',
-    borderTopWidth: StyleSheet.hairlineWidth,
+    // borderTopWidth: StyleSheet.hairlineWidth,
   },
 });
 
